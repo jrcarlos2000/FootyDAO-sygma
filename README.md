@@ -6,6 +6,11 @@ https://github.com/jrcarlos2000/FootyDAO-sygma-server
 
 https://www.footydao.xyz/
 
+# Doc
+
+https://docs.google.com/document/d/1HhFIjsYgxnVKVwK9EPWLeKv5tXZoiu56bgZoj97JGxs/edit?usp=sharing
+
+
 # Contracts deployed
 
 https://goerli.etherscan.io/address/0x1E40E4d7D541294f3621dF3e8E2fA70Db72480aA#readContract
