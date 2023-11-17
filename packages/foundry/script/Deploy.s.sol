@@ -3,7 +3,9 @@ pragma solidity ^0.8.19;
 
 import "../contracts/YourContract.sol";
 import "./DeployHelpers.s.sol";
-
+import "../contracts/FootyDAO.sol";
+import "../contracts/FootyDAOAdapter.sol";
+import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 contract DeployScript is ScaffoldETHDeploy {
     error InvalidPrivateKey(string);
 
@@ -24,6 +26,32 @@ contract DeployScript is ScaffoldETHDeploy {
                 vm.toString(address(yourContract))
             )
         );
+
+        if(block.chainid != 5) {
+            FootyDAO footyDAO = new FootyDAO();
+            console.logString(
+                string.concat(
+                    "FootyDAO deployed at: ",
+                    vm.toString(address(footyDAO))
+                )
+            );
+        }else {
+            // FootyDAOAdapter footyDAOAdapter = new FootyDAOAdapter(
+            //     0x3F9A68fF29B3d86a6928C44dF171A984F6180009
+            // );
+            // console.logString(
+            //     string.concat(
+            //         "FootyDAOAdapter deployed at: ",
+            //         vm.toString(address(footyDAOAdapter))
+            //     )
+            // );
+            FootyDAOAdapter footyDAOAdapter = FootyDAOAdapter(
+                0x1E40E4d7D541294f3621dF3e8E2fA70Db72480aA
+            );
+            IERC20(0x3F9A68fF29B3d86a6928C44dF171A984F6180009).approve(address(footyDAOAdapter),1000000);
+            footyDAOAdapter.joinGame(1,1000000);
+        }
+
         vm.stopBroadcast();
 
         /**
