@@ -2,6 +2,10 @@
 
 https://github.com/jrcarlos2000/FootyDAO-sygma-server
 
+# Simple demo
+
+https://youtu.be/Rd9SzERSkq8
+
 # Website
 
 https://www.footydao.xyz/
